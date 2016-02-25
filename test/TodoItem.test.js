@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {TodoItem} from '../index';
+import TodoItem from '../src/TodoItem.js';
 
 let expect = chai.expect;
 

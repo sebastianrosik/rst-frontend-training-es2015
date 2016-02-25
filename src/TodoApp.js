@@ -1,4 +1,5 @@
-import * from './constants.js';
+import CONSTANTS from './constants.js';
+import TodoItem from './TodoItem.js';
 
 export default class TodoApp {
     constructor(itemList = []) {
@@ -20,7 +21,7 @@ export default class TodoApp {
     }
     
     clearDoneItems() {
-        this._itemList = this._itemList.filter(item => item.status === NOT_DONE);
+        this._itemList = this._itemList.filter(item => item.status === CONSTANTS.NOT_DONE);
     }
     
     toggle(index) {

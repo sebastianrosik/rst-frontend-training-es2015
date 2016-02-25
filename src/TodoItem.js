@@ -1,25 +1,25 @@
-import * from './constants.js';
+import CONSTANTS from './constants.js';
 
 export default class TodoItem {
     constructor(title) {
         this.title = title;
-        this.status = NOT_DONE;
+        this.status = CONSTANTS.NOT_DONE;
     }
     
     isDone() {
-        return this.status === DONE;
+        return this.status === CONSTANTS.DONE;
     }
     
     markAsDone() {
-        this.status = DONE;
+        this.status = CONSTANTS.DONE;
     }
     
     markAsNotDone() {
-        this.status = NOT_DONE;
+        this.status = CONSTANTS.NOT_DONE;
     }
     
     toggle() {
-        this.status = this.isDone() ? NOT_DONE : DONE;
+        this.status = this.isDone() ? CONSTANTS.NOT_DONE : CONSTANTS.DONE;
     }
     
     toString() {
