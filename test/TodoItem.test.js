@@ -35,14 +35,14 @@ describe('TodoItem', () => {
       expect(todoItem.isDone()).to.eq(false);
    });
    
-   it('toogles status', () => {
+   it('toggles status', () => {
       expect(todoItem.isDone()).to.eq(false);
       
-      todoItem.toggle();
+      todoItem.toggleStatus();
       
       expect(todoItem.isDone()).to.eq(true);
       
-      todoItem.toggle();
+      todoItem.toggleStatus();
       
       expect(todoItem.isDone()).to.eq(false);
    });
