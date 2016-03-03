@@ -2,9 +2,6 @@ import CONSTANTS from './constants.js';
 
 /**
  * TodoItem class.
- * 
- * @prop {string} title
- * @prop {boolean} status
  */
 export default class TodoItem {
     
@@ -12,7 +9,10 @@ export default class TodoItem {
      * @param {String} title
      */
     constructor(title) {
+        /** @type {string} */
         this.title = title;
+        
+        /** @type {boolean} */
         this.status = CONSTANTS.NOT_DONE;
     }
 
