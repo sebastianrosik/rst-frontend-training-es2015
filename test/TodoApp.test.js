@@ -24,8 +24,13 @@ describe('TodoApp', () => {
       expect(i).to.equal(0);
       expect(todoApp.getItems()).to.have.length(1);
       
-      let items = todoApp.getItems();
-      expect(items[i].title).to.equal(itemTitle);
+      expect(todoApp.getItemByIndex(i).title).to.equal(itemTitle);
+   });
+   
+   it('get item by index', () => {
+      var itemTitle = "some title";
+      var i = todoApp.createItem(itemTitle);
+      expect(todoApp.getItemByIndex(0)).not.to.be.undefined;
    });
    
    it("removes item", () => {

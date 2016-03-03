@@ -15,12 +15,29 @@ describe('TodoItem', () => {
       expect(todoItem).to.be.defined;
    });
    
-   it('has specific title', () => {
+   it('has rendered title', () => {
       let expectedTitle = 'my fancy title';
       todoItem = new TodoItem(expectedTitle);
       
-      expect(todoItem.toString()).to.contain(expectedTitle);
-      expect(todoItem.toString()).to.contain('[new]');
+      const txt = todoItem.toString();
+      expect(txt).to.contain(expectedTitle);
+      expect(txt).to.contain(']');
+      expect(txt).to.contain('[');
+   });
+   
+   describe('has rendered the right status', () => {
+      beforeEach(() => {
+         let expectedTitle = 'my fancy title';
+         todoItem = new TodoItem(expectedTitle);
+      });
+      it('when it is done', () => {
+         todoItem.markAsDone();
+         expect(todoItem.toString()).to.contain('[✔]');
+      });
+      it('when it is not done', () => {
+         todoItem.markAsNotDone();
+         expect(todoItem.toString()).to.contain('[ ]');
+      });
    });
    
    it('changes status', () => {

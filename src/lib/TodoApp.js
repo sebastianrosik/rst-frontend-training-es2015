@@ -16,7 +16,13 @@ export default class TodoApp {
      * @param {Array} [itemList]
      */    
     constructor(itemList = []) {
-        db.set(this, itemList);
+        db.set(this, itemList.map(item => {
+            return TodoItem.create(item);
+        }));
+    }
+    
+    getItemByIndex(index) {
+        return db.get(this)[index];
     }
     
     /**

@@ -1,11 +1,11 @@
 import commands from './commands';
 import program from 'commander';
 
-var cmdValue, envValue;
+let cmdValue, argsValue;
 
 program
   .version('0.0.1')
-  .arguments('<cmd> [arg2] [arg2]')
+  .arguments('<cmd> [arg1] [arg2]')
   .action((cmd, ...args) => {
      cmdValue = cmd;
      argsValue = args;
@@ -18,9 +18,4 @@ if (typeof cmdValue === 'undefined') {
    process.exit(1);
 }
 
-commands[cmdValue](...argsValue);
-
-console.log('command:', cmdValue);
-console.log('environment:', envValue || "no environment given");
-
-new TodoApp();
+commands(cmdValue, argsValue);

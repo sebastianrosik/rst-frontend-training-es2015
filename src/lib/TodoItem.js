@@ -8,12 +8,12 @@ export default class TodoItem {
     /**
      * @param {String} title
      */
-    constructor(title) {
+    constructor(title, status = CONSTANTS.NOT_DONE) {
         /** @type {string} */
         this.title = title;
         
         /** @type {boolean} */
-        this.status = CONSTANTS.NOT_DONE;
+        this.status = status;
     }
 
     /**
@@ -48,6 +48,10 @@ export default class TodoItem {
         }
     }
     
+    static create(data) {
+        return new TodoItem(data.title, data.status);
+    }
+    
     /**
      * @example: my item title [done]
      * @example: another item [new]
@@ -55,7 +59,7 @@ export default class TodoItem {
      * @return {String}
      */
     toString() {
-        let status = this.isDone() ? 'done' : 'new';
-        return `${this.title} [${status}]`;
+        let status = this.isDone() ? '✔' : ' ';
+        return `[${status}] ${this.title || '"Untitled"'}`;
     }
 }
