@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --watch",
+    "test": "mocha --compilers js:babel-register",
+    "test:watch": "npm test -- --watch",
     "docs": "esdoc -c esdoc.json"
   },
   "author": "",
@@ -15,6 +16,7 @@
     "babel-register": "^6.5.2",
     "babel-runtime": "^6.5.0",
     "chai": "^3.5.0",
+    "commander": "^2.9.0",
     "core-js": "^2.1.1",
     "esdoc": "^0.4.5",
     "lodash": "^4.5.1",
